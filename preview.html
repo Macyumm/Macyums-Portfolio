@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3D Model Portfolio</title>
+
+<!-- 3D MODEL VIEWER -->
+<script type="module"
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+
+
+
+<style>
+
+/* RESET */
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+html {
+scroll-behavior:smooth;
+}
+
+body {
+background:#f5f7ff;
+color:#222;
+overflow-x:hidden;
+}
+
+/* FLOATING SHAPES */
+
+.background {
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+.shape {
+position:absolute;
+opacity:0.6;
+animation:float 14s infinite ease-in-out;
+}
+
+.circle {
+width:80px;
+height:80px;
+border-radius:50%;
+background:#ff6b6b;
+}
+
+.square {
+width:70px;
+height:70px;
+background:#4dabf7;
+}
+
+.triangle {
+width:0;
+height:0;
+border-left:40px solid transparent;
+border-right:40px solid transparent;
+border-bottom:70px solid #ffd43b;
+}
+
+@keyframes float {
+
+0% {
+transform:translateY(0px) rotate(0deg);
+}
+
+50% {
+transform:translateY(-40px) rotate(180deg);
+}
+
+100% {
+transform:translateY(0px) rotate(360deg);
+}
+
+}
+
+/* NAV */
+
+nav {
+position:fixed;
+width:100%;
+padding:15px 40px;
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.6);
+display:flex;
+justify-content:space-between;
+z-index:1000;
+}
+
+nav a {
+margin-left:25px;
+text-decoration:none;
+color:#222;
+transition:0.3s;
+}
+
+nav a:hover {
+color:#ff6b6b;
+}
+
+/* HERO */
+
+.hero {
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1 {
+font-size:55px;
+}
+
+.hero span {
+color:#ff6b6b;
+}
+
+/* SECTIONS */
+
+section {
+padding:100px 60px;
+}
+
+/* MODEL GRID */
+
+.grid {
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+/* MODEL CARD */
+
+.card {
+background:white;
+border-radius:18px;
+padding:15px;
+transition:0.3s;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+transform:translateY(-8px) scale(1.02);
+}
+
+/* MODEL VIEWER */
+
+model-viewer {
+width:100%;
+height:250px;
+background:#e9ecff;
+border-radius:15px;
+}
+
+/* TEXT */
+
+.card h3 {
+margin-top:10px;
+font-size:18px;
+}
+
+/* CONTACT */
+
+.contact {
+text-align:center;
+}
+
+.contact input,
+.contact textarea {
+
+width:100%;
+max-width:500px;
+padding:12px;
+margin:10px;
+border-radius:10px;
+border:none;
+background:#eef2ff;
+}
+
+.contact button {
+
+padding:12px 25px;
+border-radius:10px;
+border:none;
+background:#ff6b6b;
+color:white;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer {
+text-align:center;
+padding:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING OBJECTS -->
+
+<div class="background">
+
+<div class="shape circle"
+style="top:10%; left:5%;"></div>
+
+<div class="shape square"
+style="top:70%; left:10%;"></div>
+
+<div class="shape triangle"
+style="top:40%; left:80%;"></div>
+
+<div class="shape circle"
+style="top:80%; left:60%;"></div>
+
+<div class="shape square"
+style="top:20%; left:50%;"></div>
+
+</div>
+
+<!-- NAV -->
+
+<nav>
+
+<h2>Macyums portfolio</h2>
+
+<div>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>Hello, I'm <span>macyum</span></h1>
+
+<p>
+3D Modeler | Blender Artist
+</p>
+
+</div>
+
+<!-- WORK SECTION -->
+
+<section id="work">
+
+<h2 style="text-align:center;
+margin-bottom:40px;">
+
+My 3D Work
+
+</h2>
+
+<div class="grid">
+
+<!-- MODEL 1 -->
+
+<div class="card">
+
+<model-viewer
+src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+camera-controls
+auto-rotate
+shadow-intensity="1">
+</model-viewer>
+
+<h3>Model Name </h3>
+
+</div>
+
+<!-- MODEL 2 -->
+
+<div class="card">
+
+<model-viewer
+src="https://modelviewer.dev/shared-assets/models/RobotExpressive.glb"
+camera-controls
+auto-rotate>
+</model-viewer>
+
+<h3>Robot Model </h3>
+
+</div>
+
+<!-- IMAGE PLACEHOLDER -->
+<div class="card">
+<img src="C:\Users\home\Downloads\image.png" 
+     alt="Model Placeholder" 
+     style="width:100%; height:250px; border-radius:15px; object-fit:cover;">
+  <h3>Model Name</h3>
+</div>
+
+<!-- IMAGE PLACEHOLDER -->
+<div class="card">
+  <img src="C:\Users\home\Desktop\Screenshot 2026-03-28 161247.png" 
+       alt="Model Placeholder" 
+       style="width:100%; height:250px; border-radius:15px; object-fit:cover;">
+  <h3>Model Name</h3>
+</div>
+
+<!-- IMAGE PLACEHOLDER -->
+<div class="card">
+  <img src="C:\Users\home\Downloads\hfhabasdhassofa.png" 
+       alt="Model Placeholder" 
+       style="width:100%; height:250px; border-radius:15px; object-fit:cover;">
+  <h3>Model Name</h3>
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="contact">
+
+<h1>About Me</h1>
+
+
+
+<em>Hey! I’m a 3D modeler who likes to live in both worlds—the sharp, clean lines of low poly and the intricate detail of high poly. Whether it’s for Roblox, games, or other projects, I turn ideas into models that actually feel alive.
+
+I love experimenting with style, scale, and personality in every mesh, and I’m always up for a challenge: from tiny props to full environments, if you can imagine it, I can probably model it.
+
+When I’m not tweaking vertices or perfecting topology, I’m thinking about how to make your virtual world a little more fun, quirky, or just plain cool.</em>
+
+
+
+</div>
+
+</section>
+
+<footer>
+
+© Macyums - Portfolio
+
+</footer>
+
+</body>
+</html>
